@@ -5,7 +5,8 @@ import Link from "next/link";
 
 const inter = Inter({ subsets: ["latin"] });
 
-import NavBar from "./navbar";
+import { twMerge } from "tailwind-merge";
+import NavBar from "./navBar";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -19,43 +20,16 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
-      <body className="relative bg-black text-black dark:bg-black dark:text-white">
-        <header className="relative bg-black text-black dark:bg-black dark:text-white">
+      <body
+        className={twMerge(
+          inter.className,
+          "relative bg-white text-black dark:bg-black dark:text-white"
+        )}
+      >
+        <header className="bg-black text-white shadow-md">
           <NavBar />
         </header>
-        <main className="lg:p-0 mx-auto max-w-7xl">{children}</main>
-        <footer className="relative bg-black text-white dark:bg-black dark:text-white">
-          <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-            <div className="py-3 md:grid-cols-3 gap-8 text-sm text-center">
-              <div>
-                <h4 className="mb-3 text-lg">Get Connected</h4>
-                <p className="pb-2">Email: nakhyunpaik@gmail.com</p>
-                <a
-                  href="https://www.github.com/npaik"
-                  className="inline-block ml-1 mr-1"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <img src="/FacebookLogo.png" alt="Facebook" className="h-7" />
-                </a>
-
-                <a
-                  href="https://www.linkedin.com/in/npaik/"
-                  className="inline-block ml-1 mr-1"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
-                  <img src="/XLogo.jpg" alt="Twitter" className="h-6" />
-                </a>
-              </div>
-            </div>
-            <div className="border-t border-[#f8e8bb] pt-2 mt-2">
-              <p className="text-center text-sm pb-6 pt-3">
-                © Copyright 2024 Tony Paik
-              </p>
-            </div>
-          </div>
-        </footer>
+        <main className="lg:p-20 mx-auto max-w-7xl">{children}</main>
       </body>
     </html>
   );
