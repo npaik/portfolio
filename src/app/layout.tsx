@@ -1,7 +1,7 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import { twMerge } from "tailwind-merge";
-import NavBar from "./navBar";
+import NavBar from "./navbar";
 import { Inter } from "next/font/google";
 
 const inter = Inter({ subsets: ["latin"] });

@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import NavBar from "./navBar";
+import NavBar from "./navbar";
 
 export default function Home() {
   return (
