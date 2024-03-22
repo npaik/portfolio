@@ -22,7 +22,7 @@ export default function ProjectsPage() {
     },
     {
       name: "Tonyeebrary E-Book library",
-      url: "https://tonyeeebrary.vercel.app",
+      url: "https://tonyeeebrary.vercel.app/",
       preview: "tonyeeebrary.png",
     },
     {
@@ -32,12 +32,12 @@ export default function ProjectsPage() {
     },
     {
       name: "Bank Account Management",
-      url: "https://bankaccount.azurewebsites.net",
+      url: "https://bankaccount.azurewebsites.net/",
       preview: "bankaccount.png",
     },
     {
       name: "Words Game Phaser",
-      url: "https://wordsgamephaser.vercel.app",
+      url: "https://wordsgamephaser.vercel.app/",
       preview: "typinggame.png",
     },
     {
@@ -52,12 +52,12 @@ export default function ProjectsPage() {
     },
     {
       name: "Pokemon Card Trader",
-      url: "https://pokemoncardtrader.fly.dev",
+      url: "https://pokemoncardtrader.fly.dev/",
       preview: "randomcards.png",
     },
     {
       name: "Unity Runner Game - in Progress",
-      url: "https://nakhyunpaik.com",
+      url: "/",
       preview: "unitygame.png",
     },
   ];
