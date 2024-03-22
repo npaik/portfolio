@@ -21,7 +21,7 @@ export default function RootLayout({
       <body
         className={twMerge(
           inter.className,
-          "relative bg-white text-black dark:bg-black dark:text-white"
+          "relative bg-black text-white dark:bg-black dark:text-white"
         )}
       >
         <header className="bg-black text-white shadow-md">
