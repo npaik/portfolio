@@ -57,7 +57,7 @@ export default function ProjectsPage() {
     },
     {
       name: "Unity Runner Game - in Progress",
-      url: "www.nakhyunpaik.com",
+      url: "https://nakhyunpaik.com",
       preview: "unitygame.png",
     },
   ];
