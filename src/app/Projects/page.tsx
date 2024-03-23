@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 export default function ProjectsPage() {
   const projects = [
     {
@@ -21,7 +23,7 @@ export default function ProjectsPage() {
       preview: "expensetracker.png",
     },
     {
-      name: "Tonyeebrary E-Book library",
+      name: "Tonyeebrary EBook library",
       url: "https://tonyeeebrary.vercel.app/",
       preview: "tonyeeebrary.png",
     },
@@ -41,7 +43,7 @@ export default function ProjectsPage() {
       preview: "typinggame.png",
     },
     {
-      name: "Game of YUT - Board Game",
+      name: "Game of YUT Board Game",
       url: "https://boardgame-eight.vercel.app/",
       preview: "boardgame.png",
     },
@@ -56,22 +58,24 @@ export default function ProjectsPage() {
       preview: "randomcards.png",
     },
     {
-      name: "Unity Runner Game - in Progress",
+      name: "Unity Runner Game in Progress",
       url: "/",
       preview: "unitygame.png",
     },
   ];
+
+  const createUrlFriendlyId = (name: string) => {
+    return name.replace(/\s+/g, "");
+  };
 
   return (
     <div className="bg-black text-white flex flex-col justify-center items-center">
       <h4 className="text-center text-4xl mb-4">Projects Page</h4>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-4 p-4">
         {projects.map((project, index) => (
-          <a
+          <Link
             key={index}
-            href={project.url}
-            target="_blank"
-            rel="noopener noreferrer"
+            href={`/Projects/${createUrlFriendlyId(project.name)}`}
             aria-label={`View project: ${project.name}`}
             className="bg-white text-black border border-gray-300 rounded-lg shadow-xl hover:shadow-2xl transition duration-300 ease-in-out overflow-hidden flex flex-col transform hover:scale-105"
           >
@@ -85,7 +89,7 @@ export default function ProjectsPage() {
               }}
             ></div>
             <div className="p-2 text-center">{project.name}</div>
-          </a>
+          </Link>
         ))}
       </div>
     </div>
