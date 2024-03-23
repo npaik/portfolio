@@ -12,6 +12,7 @@ import Link from "next/link";
 import Image from "next/image";
 
 export default function Component() {
+  //deploy!!!
   return (
     <div className="flex flex-col items-center w-full pt-40 mt-30">
       <div className="container grid max-w-2xl px-4 gap-6 md:px-6">
@@ -67,7 +68,6 @@ export default function Component() {
                 className="rounded-full p-2 hover:bg-gray-100"
                 href="https://www.linkedin.com/in/npaik/"
               >
-                
                 <Image
                   src="/linkedin.png"
                   alt="LinkedIn"
