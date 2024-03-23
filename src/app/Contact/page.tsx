@@ -13,11 +13,11 @@ import Image from "next/image";
 
 export default function Component() {
   return (
-    <div className="w-full py-12">
+    <div className="flex flex-col items-center w-full pt-40 mt-30">
       <div className="container grid max-w-2xl px-4 gap-6 md:px-6">
         <div className="space-y-4">
           <div className="space-y-2">
-            <h1 className="text-3xl font-bold">Contact me</h1>
+            <h1 className="text-5xl font-bold mb-10">Contact me</h1>
             <p className="text-gray-500 dark:text-gray-400">
               Have a question or want to work together? Send me a message using
               the form below.
@@ -45,7 +45,6 @@ export default function Component() {
             <Button>Send message</Button>
           </div>
           <div className="space-y-2">
-            <h2 className="text-2xl font-bold">Connect with me</h2>
             <p className="text-gray-500 dark:text-gray-400">
               You can also reach out to me through my social media profiles or
               by email.
