@@ -67,6 +67,7 @@ export default function Component() {
                 className="rounded-full p-2 hover:bg-gray-100"
                 href="https://www.linkedin.com/in/npaik/"
               >
+                
                 <Image
                   src="/linkedin.png"
                   alt="LinkedIn"

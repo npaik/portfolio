@@ -71,6 +71,7 @@ export default function AboutMePage() {
     resizeCanvas();
     window.addEventListener("resize", resizeCanvas);
     return () => window.removeEventListener("resize", resizeCanvas);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
@@ -105,7 +106,7 @@ export default function AboutMePage() {
 
   return (
     <div className="flex flex-col items-center w-full">
-      <div className="text-white text-7xl mb-4">Tony Paik</div>
+      <div className="text-white text-5xl mb-4">Tony Paik</div>
       <div className="text-white text-3xl mb-4">Full Stack Web Developer</div>
       <div className="relative">
         <canvas ref={canvasRef} className="border-2"></canvas>

@@ -73,7 +73,7 @@ export default function ProjectsPage() {
             target="_blank"
             rel="noopener noreferrer"
             aria-label={`View project: ${project.name}`}
-            className="bg-white text-black border-1 border-gray-300 rounded-lg shadow-xl hover:shadow-2xl transition duration-300 ease-in-out overflow-hidden flex flex-col"
+            className="bg-white text-black border border-gray-300 rounded-lg shadow-xl hover:shadow-2xl transition duration-300 ease-in-out overflow-hidden flex flex-col transform hover:scale-105"
           >
             <div
               className="w-full flex-grow"
