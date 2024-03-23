@@ -1,6 +1,18 @@
 "use client";
 import React, { useRef, useEffect, useState } from "react";
 
+interface Word {
+  text: string;
+  position: {
+    x: number;
+    y: number;
+  };
+  velocity: {
+    x: number;
+    y: number;
+  };
+}
+
 const keywords = [
   "BCIT Graduate",
   "Frontend Specialist",
@@ -35,10 +47,10 @@ const keywords = [
 const getRandomVelocity = () => Math.random() * 2 - 1;
 
 export default function AboutMePage() {
-  const canvasRef = useRef(null);
-  const [words, setWords] = useState([]);
+  const canvasRef = useRef<HTMLCanvasElement>(null);
+  const [words, setWords] = useState<Word[]>([]);
 
-  const initializeWords = (width, height) => {
+  const initializeWords = (width: number, height: number) => {
     return keywords.map((keyword) => ({
       text: keyword,
       position: { x: Math.random() * width, y: Math.random() * height },
@@ -48,9 +60,11 @@ export default function AboutMePage() {
 
   const resizeCanvas = () => {
     const canvas = canvasRef.current;
-    canvas.width = window.innerWidth * 0.8;
-    canvas.height = window.innerHeight * 0.8;
-    setWords(initializeWords(canvas.width, canvas.height));
+    if (canvas) {
+      canvas.width = window.innerWidth * 0.8;
+      canvas.height = window.innerHeight * 0.8;
+      setWords(initializeWords(canvas.width, canvas.height));
+    }
   };
 
   useEffect(() => {
@@ -61,29 +75,32 @@ export default function AboutMePage() {
 
   useEffect(() => {
     const canvas = canvasRef.current;
-    const context = canvas.getContext("2d");
+    if (canvas) {
+      const context = canvas.getContext("2d");
+      if (context) {
+        const draw = () => {
+          context.clearRect(0, 0, canvas.width, canvas.height);
+          context.font = "30px Arial";
+          context.fillStyle = "#FFFFFF";
 
-    const draw = () => {
-      context.clearRect(0, 0, canvas.width, canvas.height);
-      context.font = "30px Arial";
-      context.fillStyle = "#FFFFFF";
+          words.forEach((word) => {
+            word.position.x += word.velocity.x;
+            word.position.y += word.velocity.y;
 
-      words.forEach((word) => {
-        word.position.x += word.velocity.x;
-        word.position.y += word.velocity.y;
+            if (word.position.x <= 0 || word.position.x >= canvas.width)
+              word.velocity.x *= -1;
+            if (word.position.y <= 0 || word.position.y >= canvas.height)
+              word.velocity.y *= -1;
 
-        if (word.position.x <= 0 || word.position.x >= canvas.width)
-          word.velocity.x *= -1;
-        if (word.position.y <= 0 || word.position.y >= canvas.height)
-          word.velocity.y *= -1;
+            context.fillText(word.text, word.position.x, word.position.y);
+          });
 
-        context.fillText(word.text, word.position.x, word.position.y);
-      });
+          requestAnimationFrame(draw);
+        };
 
-      requestAnimationFrame(draw);
-    };
-
-    draw();
+        draw();
+      }
+    }
   }, [words]);
 
   return (
