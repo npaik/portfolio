@@ -19,15 +19,12 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={twMerge(
-          inter.className,
-          "relative bg-black text-white dark:bg-black dark:text-white"
-        )}
+        className={twMerge(inter.className, "relative bg-black text-white")}
       >
         <header className="bg-black text-white shadow-md">
           <NavBar />
         </header>
-        <main className="lg:p-20 mx-auto max-w-7xl">{children}</main>
+        <main className="mt-10 mx-auto max-w-7xl">{children}</main>
       </body>
     </html>
   );
