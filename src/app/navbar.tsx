@@ -10,7 +10,10 @@ export default function NavBar() {
 
   return (
     <div className="fixed top-0 right-0 z-50">
-      <button className="p-4" onClick={() => setIsOpen(!isOpen)}>
+      <button
+        className="p-4 hover:scale-150"
+        onClick={() => setIsOpen(!isOpen)}
+      >
         {isOpen ? (
           <Image src="/closebutton.png" alt="Close" width={55} height={55} />
         ) : (
