@@ -15,12 +15,34 @@ export default function Home() {
     }, 5000);
   }, []);
 
+  const getRandomColor = () => {
+    const letters = "0123456789ABCDEF";
+    let color = "#";
+    for (let i = 0; i < 6; i++) {
+      color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+  };
+
+  const handleMouseEnter = (e: any) => {
+    e.target.style.color = getRandomColor();
+  };
+
+  const handleMouseLeave = (e: any) => {
+    e.target.style.color = "white";
+  };
+
   const wrapTextForHoverEffect = (text: string) =>
     text.split("").map((char, index) =>
       char === " " ? (
         <span key={index}>&nbsp;</span>
       ) : (
-        <span key={index} className="letter">
+        <span
+          key={index}
+          className="letter"
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+        >
           {char}
         </span>
       )
