@@ -15,9 +15,19 @@ export default function Home() {
     }, 5000);
   }, []);
 
+  const wrapTextForHoverEffect = (text: string) =>
+    text.split("").map((char, index) =>
+      char === " " ? (
+        <span key={index}>&nbsp;</span>
+      ) : (
+        <span key={index} className="letter">
+          {char}
+        </span>
+      )
+    );
+
   return (
     <>
-      <canvas className="fixed top-0 left-0 w-screen h-screen z-0"></canvas>
       <div className="fixed top-0 right-0 p-4 z-50"></div>
       <div className="flex flex-col justify-center items-center pt-48 mt-36 bg-black">
         <div className="hover:text-scale-up">
@@ -28,18 +38,19 @@ export default function Home() {
               borderRight: hideCursor ? "none" : "",
             }}
           >
-            Hi there, I&#39;m Tony Paik
+            {wrapTextForHoverEffect("Hi there, I'm Tony Paik")}
           </h1>
           {isTyping && (
             <p
-              className="typing text-center text-xl md:text-3xl lg:text-4xl hover:text-6xl ml-6 text-white transition-transform duration-300"
+              className="typing text-center text-xl md:text-3xl lg:text-4xl ml-6 text-white transition-transform duration-300"
               style={{
                 animation: hideCursor ? "none" : "",
                 borderRight: hideCursor ? "none" : "",
               }}
             >
-              I&#39;m a Full-Stack Web Developer. I love crafting fun, useful,
-              and innovative solutions.
+              {wrapTextForHoverEffect(
+                "I'm a Full-Stack Web Developer. I love crafting fun, useful, and innovative solutions."
+              )}
             </p>
           )}
         </div>

@@ -2,7 +2,11 @@
 @tailwind components;
 @tailwind utilities;
 
-
+.letter:hover {
+  transform: scale(1.5);
+  display: inline-block;
+  transition: transform 0.3s;
+}
 .typing {
   font-size: 2rem;
   color: white;
