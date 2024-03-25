@@ -19,12 +19,12 @@ export default function Component() {
         <div className="space-y-4">
           <div className="space-y-2">
             <h1 className="text-5xl font-bold mb-10">Contact me</h1>
-            <p className="text-gray-500 dark:text-gray-400">
+            {/* <p className="text-gray-500 dark:text-gray-400">
               Have a question or want to work together? Send me a message using
               the form below.
-            </p>
+            </p> */}
           </div>
-          <div className="space-y-4">
+          {/* <div className="space-y-4">
             <div className="grid grid-cols-2 gap-4">
               <div className="space-y-2">
                 <Label htmlFor="name">Name</Label>
@@ -44,20 +44,33 @@ export default function Component() {
               />
             </div>
             <Button>Send message</Button>
-          </div>
+          </div> */}
           <div className="space-y-2">
             <p className="text-gray-500 dark:text-gray-400">
-              You can also reach out to me through my social media profiles or
-              by email.
+              You can reach out to me through my social media profiles or by
+              email.
             </p>
             <div className="flex items-center space-x-4">
+              <Link
+                className="rounded-full p-2 hover:bg-gray-100"
+                href="mailto:nakhyunpaik@gmail.com"
+              >
+                <Image
+                  src="/email.png"
+                  alt="Email"
+                  width={24}
+                  height={24}
+                  className="h-6 w-6"
+                />
+                <span className="sr-only">Email</span>
+              </Link>
               <Link
                 className="rounded-full p-2 hover:bg-gray-100"
                 href="https://github.com/npaik"
               >
                 <Image
                   src="/github.png"
-                  alt="Thread"
+                  alt="Github"
                   width={24}
                   height={24}
                   className="h-6 w-6"
