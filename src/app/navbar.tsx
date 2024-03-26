@@ -5,6 +5,7 @@ import Image from "next/image";
 
 export default function NavBar() {
   const [isOpen, setIsOpen] = useState(false);
+  const [menuOpacity, setMenuOpacity] = useState(0);
 
   useEffect(() => {
     if (typeof window !== "undefined") {
@@ -54,6 +55,42 @@ export default function NavBar() {
       )
     );
 
+  useEffect(() => {
+    let fadeInterval: string | number | NodeJS.Timeout | undefined;
+
+    if (isOpen) {
+      // Fade in
+      setMenuOpacity(0); // Start from transparent if opening
+      fadeInterval = setInterval(() => {
+        setMenuOpacity((currentOpacity) => {
+          const newOpacity = currentOpacity + 0.05; // Increase opacity
+          if (newOpacity >= 1) {
+            clearInterval(fadeInterval);
+            return 1;
+          }
+          return newOpacity;
+        });
+      }, 20);
+    } else if (!isOpen && menuOpacity > 0) {
+      // Fade out
+      fadeInterval = setInterval(() => {
+        setMenuOpacity((currentOpacity) => {
+          const newOpacity = currentOpacity - 0.05; // Decrease opacity
+          if (newOpacity <= 0) {
+            clearInterval(fadeInterval);
+            return 0;
+          }
+          return newOpacity;
+        });
+      }, 20);
+    }
+
+    return () => {
+      clearInterval(fadeInterval);
+    };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [isOpen]);
+
   return (
     <div className="fixed top-0 right-0 z-50">
       <button className="p-4" onClick={() => setIsOpen(!isOpen)}>
@@ -71,7 +108,14 @@ export default function NavBar() {
             aria-hidden="true"
             onClick={() => setIsOpen(false)}
           ></div>
-          <nav className="fixed top-0 right-0 h-full bg-gray-900 text-white flex flex-col items-center justify-center p-8 space-y-6 z-50">
+          <nav
+            className="fixed top-0 right-0 h-full bg-gray-900 text-white flex flex-col items-center justify-center p-8 space-y-6 z-50"
+            style={{
+              opacity: menuOpacity,
+              transition: "opacity 300ms ease-in-out",
+              pointerEvents: isOpen ? "all" : "none",
+            }}
+          >
             <button
               className="fixed top-0 right-0 p-4"
               onClick={() => setIsOpen(!isOpen)}
