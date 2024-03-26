@@ -70,7 +70,7 @@ export default function ProjectsPage() {
 
   return (
     <div className="bg-black text-white flex flex-col justify-center items-center">
-      <h4 className="text-center text-4xl mb-4">Projects</h4>
+      <h4 className="text-center text-5xl mb-4 font-bold">Projects</h4>
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-4 p-4">
         {projects.map((project, index) => (
           <Link

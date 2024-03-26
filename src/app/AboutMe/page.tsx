@@ -14,41 +14,97 @@ interface Word {
 }
 
 const keywords = [
-  "BCIT Graduate",
-  "Frontend Specialist",
+  "ASP.NET",
+  "Agile Methodology",
+  "AWS",
+  "Azure",
   "Backend Architect",
-  "Web Developer",
-  "React",
+  "BCIT Graduate",
+  "C#",
+  "CI/CD",
+  "Cloud Deployment",
+  "Continuous Improvement",
+  "Creative Innovator",
+  "CSS",
+  "Customer Focused",
+  "Database Management",
+  "Detail Oriented",
+  "Enthusiastic",
+  "Express.js",
+  "Fast Learner",
+  "Frontend Specialist",
+  "Game Development",
+  "HTML",
+  "JavaScript",
+  "Laravel",
+  "MySQL",
   "Next.js",
   "Node.js",
-  "ASP.NET",
-  "Laravel",
-  "Cloud Deployment",
-  "AWS",
-  "Database Management",
-  "Agile Methodology",
-  "Project Leadership",
-  "Game Development",
-  "Creative Innovator",
-  "Tech Hackathons",
-  "Team Collaboration",
   "Passionate about Technology",
-  "Fast Learner",
-  "Problem Solver",
-  "Detail Oriented",
-  "Customer Focused",
-  "Continuous Improvement",
-  "User Experience",
-  "Responsive Design",
-  "Enthusiastic",
+  "Phaser.js",
+  "PHP",
   "Positive Attitude",
+  "PostgreSQL",
+  "Problem Solver",
+  "Project Leadership",
+  "Python",
+  "React",
+  "Responsive Design",
+  "S3",
+  "SQLite",
+  "Tailwind CSS",
+  "Team Collaboration",
+  "Tech Hackathons",
+  "TypeScript",
+  "User Experience",
+  "Web Developer",
 ];
+
+const categorizedKeywords = {
+  Frontend: [
+    "CSS",
+    "HTML",
+    "JavaScript",
+    "React",
+    "Next.js",
+    "Tailwind CSS",
+    "TypeScript",
+  ],
+  Backend: [
+    "ASP.NET",
+    "C#",
+    "Express.js",
+    "Node.js",
+    "PHP",
+    "Python",
+    "Laravel",
+  ],
+  Database: ["MySQL", "PostgreSQL", "SQLite"],
+  Cloud: ["AWS", "Azure", "Cloud Deployment", "S3", "Vercel", "Fly.io"],
+  SoftSkills: [
+    "Continuous Improvement",
+    "Creative Innovator",
+    "Customer Focused",
+    "Detail Oriented",
+    "Enthusiastic",
+    "Fast Learner",
+    "Passionate about Technology",
+    "Positive Attitude",
+    "Problem Solver",
+    "Leadership",
+    "Team Collaboration",
+    "Tech Hackathons",
+  ],
+};
 
 const getRandomVelocity = () => Math.random() * 2 - 1;
 
 export default function AboutMePage() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [words, setWords] = useState<Word[]>([]);
+  const [fadeOut, setFadeOut] = useState(false);
+  const [displayList, setDisplayList] = useState(false);
+  const [listOpacity, setListOpacity] = useState(0);
 
   const initializeWords = (width: number, height: number) => {
     return keywords.map((keyword) => ({
@@ -61,8 +117,8 @@ export default function AboutMePage() {
   const resizeCanvas = () => {
     const canvas = canvasRef.current;
     if (canvas) {
-      canvas.width = window.innerWidth * 0.8;
-      canvas.height = window.innerHeight * 0.8;
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
       setWords(initializeWords(canvas.width, canvas.height));
     }
   };
@@ -70,21 +126,42 @@ export default function AboutMePage() {
   useEffect(() => {
     resizeCanvas();
     window.addEventListener("resize", resizeCanvas);
-    return () => window.removeEventListener("resize", resizeCanvas);
+    return () => {
+      window.removeEventListener("resize", resizeCanvas);
+    };
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
-    const canvas = canvasRef.current;
-    if (canvas) {
-      const context = canvas.getContext("2d");
-      if (context) {
-        const draw = () => {
-          context.clearRect(0, 0, canvas.width, canvas.height);
-          context.font = "30px Arial";
-          context.fillStyle = "#FFFFFF";
+    const timer = setTimeout(() => {
+      setFadeOut(true);
+      setTimeout(() => {
+        setDisplayList(true);
+      }, 2000);
+    }, 5000);
+    return () => clearTimeout(timer);
+  }, []);
 
-          words.forEach((word) => {
+  useEffect(() => {
+    const canvas = canvasRef.current;
+    let opacity = 1;
+
+    if (canvas && !displayList) {
+      const context = canvas.getContext("2d");
+      let animationFrameId: any;
+
+      const draw = () => {
+        if (!context) return;
+
+        context.clearRect(0, 0, canvas.width, canvas.height);
+        context.globalAlpha = opacity;
+        context.font = "20px Arial";
+        context.fillStyle = "#FFFFFF";
+
+        words.forEach((word) => {
+          context.fillText(word.text, word.position.x, word.position.y);
+
+          if (!fadeOut) {
             word.position.x += word.velocity.x;
             word.position.y += word.velocity.y;
 
@@ -92,25 +169,81 @@ export default function AboutMePage() {
               word.velocity.x *= -1;
             if (word.position.y <= 0 || word.position.y >= canvas.height)
               word.velocity.y *= -1;
+          }
+        });
 
-            context.fillText(word.text, word.position.x, word.position.y);
-          });
+        if (fadeOut) {
+          opacity -= 0.02;
+          if (opacity <= 0) {
+            cancelAnimationFrame(animationFrameId);
+            return;
+          }
+        }
 
-          requestAnimationFrame(draw);
-        };
+        animationFrameId = requestAnimationFrame(draw);
+      };
 
-        draw();
-      }
+      draw();
+
+      return () => {
+        if (animationFrameId) cancelAnimationFrame(animationFrameId);
+      };
     }
-  }, [words]);
+  }, [words, fadeOut, displayList]);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setFadeOut(true);
+      setTimeout(() => {
+        setDisplayList(true);
+
+        const fadeInterval = setInterval(() => {
+          setListOpacity((currentOpacity) => {
+            const newOpacity = currentOpacity + 0.02;
+            if (newOpacity >= 1) {
+              clearInterval(fadeInterval);
+              return 1;
+            }
+            return newOpacity;
+          });
+        }, 20);
+      }, 2000);
+    }, 5000);
+
+    return () => {
+      clearTimeout(timer);
+    };
+  }, []);
 
   return (
-    <div className="flex flex-col items-center w-full">
-      <div className="text-white text-5xl mb-4">Tony Paik</div>
-      <div className="text-white text-3xl mb-4">Full Stack Web Developer</div>
-      <div className="relative">
-        <canvas ref={canvasRef} className="border-2"></canvas>
+    <div className="flex flex-col items-center w-full h-screen bg-black overflow-hidden">
+      <div className="text-white text-5xl mb-4 font-bold">Tony Paik</div>
+      <div className="text-white text-3xl mb-10 font-bold">
+        Full Stack Web Developer
       </div>
+      {displayList ? (
+        <div
+          className="text-white grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4 p-4"
+          style={{ opacity: listOpacity }}
+        >
+          {Object.entries(categorizedKeywords).map(
+            ([category, keywords], index) => (
+              <div key={index} className="flex flex-col">
+                <div className="text-3xl font-bold mb-2">{category}</div>
+                {keywords.map((keyword, keywordIndex) => (
+                  <div key={keywordIndex} className="text-xl p-1">
+                    {keyword}
+                  </div>
+                ))}
+              </div>
+            )
+          )}
+        </div>
+      ) : (
+        <div className="relative w-full h-full">
+          <canvas ref={canvasRef} className="w-full border-2"></canvas>
+        </div>
+      )}
     </div>
   );
 }
