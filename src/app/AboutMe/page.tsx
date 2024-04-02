@@ -81,20 +81,18 @@ const categorizedKeywords = {
   ],
   Database: ["MySQL", "PostgreSQL", "SQLite"],
   Cloud: ["AWS", "Azure", "Cloud Deployment", "S3", "Vercel", "Fly.io"],
-  SoftSkills: [
-    "Continuous Improvement",
-    "Creative Innovator",
-    "Customer Focused",
-    "Detail Oriented",
-    "Enthusiastic",
-    "Fast Learner",
-    "Passionate about Technology",
-    "Positive Attitude",
-    "Problem Solver",
-    "Leadership",
-    "Team Collaboration",
-    "Tech Hackathons",
-  ],
+  // SoftSkills: [
+  //   "Continuous Improvement",
+  //   "Creative Innovator",
+  //   "Customer Focused",
+  //   "Detail Oriented",
+  //   "Enthusiastic",
+  //   "Fast Learner",
+  //   "Positive Attitude",
+  //   "Problem Solver",
+  //   "Leadership",
+  //   "Team Collaboration",
+  // ],
 };
 
 const getRandomVelocity = () => Math.random() * 2 - 1;
@@ -222,22 +220,38 @@ export default function AboutMePage() {
         Full Stack Web Developer
       </div>
       {displayList ? (
-        <div
-          className="text-white grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4 p-4"
-          style={{ opacity: listOpacity }}
-        >
-          {Object.entries(categorizedKeywords).map(
-            ([category, keywords], index) => (
-              <div key={index} className="flex flex-col">
-                <div className="text-3xl font-bold mb-2">{category}</div>
-                {keywords.map((keyword, keywordIndex) => (
-                  <div key={keywordIndex} className="text-xl p-1">
-                    {keyword}
+        <div style={{ opacity: listOpacity }}>
+          <div className="text-white text-xl mb-4">
+            I am deeply passionate about crafting innovative solutions in web
+            development. I am always in pursuit of a learning environment that
+            encourages the application of the latest technologies and practices.
+            My goal is to continuously grow and excel in development, bringing
+            fresh, effective solutions to the table. My experience in restaurant
+            management has made me strong in management, leadership, and
+            teamwork skills and promoted a positive and enthusiastic attitude to
+            facing challenges. I am dedicated to bringing this dynamic energy to
+            the tech industry, leveraging my background to enable collaboration
+            and drive projects to success.
+          </div>
+          <div className="flex flex-col text-3xl font-bold mb-2 pt-10">
+            SKILLS
+          </div>
+          <div className="flex ">
+            <div className="text-white grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 p-4">
+              {Object.entries(categorizedKeywords).map(
+                ([category, keywords], index) => (
+                  <div key={index} className="flex flex-col">
+                    <div className="text-xl font-bold mb-2">{category}</div>
+                    {keywords.map((keyword, keywordIndex) => (
+                      <div key={keywordIndex} className="text-md p-1">
+                        {keyword}
+                      </div>
+                    ))}
                   </div>
-                ))}
-              </div>
-            )
-          )}
+                )
+              )}
+            </div>
+          </div>
         </div>
       ) : (
         <div className="relative w-full h-full">
