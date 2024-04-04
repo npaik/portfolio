@@ -109,7 +109,7 @@ export default function NavBar() {
             onClick={() => setIsOpen(false)}
           ></div>
           <nav
-            className="fixed top-0 right-0 h-full bg-gray-900 text-white flex flex-col items-center justify-center p-8 space-y-6 z-50"
+            className="fixed top-0 right-0 h-full navbar-grid-bg text-white flex flex-col items-center justify-center p-8 space-y-6 z-50"
             style={{
               opacity: menuOpacity,
               transition: "opacity 300ms ease-in-out",

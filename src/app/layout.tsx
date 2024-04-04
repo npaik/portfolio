@@ -19,7 +19,10 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={twMerge(inter.className, "relative bg-black text-white")}
+        className={twMerge(
+          inter.className,
+          "relative bg-black text-white background-custom"
+        )}
       >
         <header className="bg-black text-white shadow-md">
           <NavBar />

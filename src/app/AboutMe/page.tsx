@@ -214,7 +214,7 @@ export default function AboutMePage() {
   }, []);
 
   return (
-    <div className="flex flex-col items-center w-full h-screen bg-black overflow-hidden">
+    <div className="flex flex-col items-center w-full h-screen overflow-hidden">
       <div className="text-white text-5xl mb-4 font-bold">Tony Paik</div>
       <div className="text-white text-3xl mb-10 font-bold">
         Full Stack Web Developer

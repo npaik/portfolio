@@ -2,6 +2,29 @@
 @tailwind components;
 @tailwind utilities;
 
+.navbar-grid-bg {
+  background-color: #111111;
+  background-image: linear-gradient(
+      32deg,
+      rgba(8, 8, 8, 0.74) 30px,
+      transparent 30px
+    ),
+    linear-gradient(-32deg, rgba(8, 8, 8, 0.74) 30px, transparent 30px);
+  background-size: 60px 60px;
+  background-position: 0 0;
+}
+
+.background-custom {
+  @apply w-full h-full bg-[#111111];
+  background-image: linear-gradient(
+    32deg,
+    rgba(8, 8, 8, 0.74) 30px,
+    transparent
+  );
+  background-size: 60px 60px;
+  background-position: -5px -5px;
+}
+
 .blur-overlay {
   backdrop-filter: blur(5px);
   position: absolute;
