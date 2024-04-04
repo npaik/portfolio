@@ -82,6 +82,7 @@ export default function ProjectsPage() {
             <div
               className="w-full flex-grow"
               style={{
+                width: "350px",
                 height: "200px",
                 backgroundImage: `url('${project.preview}')`,
                 backgroundSize: "cover",
