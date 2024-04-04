@@ -2,6 +2,7 @@
 import Link from "next/link";
 import React, { useState, useEffect } from "react";
 import Loading from "../loading";
+import ProjectCard from "../Components/ProjectCard";
 
 export default function ProjectsPage() {
   const [isLoading, setIsLoading] = useState(true);
@@ -88,25 +89,19 @@ export default function ProjectsPage() {
   return (
     <div className="text-white flex flex-col justify-center items-center">
       <h4 className="text-center text-5xl mb-4 font-bold">Projects</h4>
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3 gap-4 p-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-3">
         {projects.map((project, index) => (
           <Link
             key={index}
             href={`/Projects/${createUrlFriendlyId(project.name)}`}
             aria-label={`View project: ${project.name}`}
-            className="bg-white text-black border border-gray-300 rounded-lg shadow-xl hover:shadow-2xl transition duration-300 ease-in-out overflow-hidden flex flex-col transform hover:scale-105"
+            className="block"
           >
-            <div
-              className="w-full flex-grow"
-              style={{
-                width: "350px",
-                height: "200px",
-                backgroundImage: `url('${project.preview}')`,
-                backgroundSize: "cover",
-                backgroundPosition: "center",
-              }}
-            ></div>
-            <div className="p-2 text-center">{project.name}</div>
+            <ProjectCard
+              name={project.name}
+              preview={project.preview}
+              url={project.url}
+            />
           </Link>
         ))}
       </div>
