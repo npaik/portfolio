@@ -75,7 +75,7 @@ export default function Home() {
     <>
       <Suspense fallback={<Loading />}></Suspense>
       <div className="fixed top-0 right-0 p-4 z-50"></div>
-      <div className="flex flex-col justify-center items-center pt-8 sm:pt-24 md:pt-36 lg:pt-48 xl:mt-36 bg-black">
+      <div className="flex flex-col justify-center items-center pt-8 sm:pt-24 md:pt-36 lg:pt-48 xl:mt-36">
         <div className="hover:text-scale-up">
           <h1
             className="typing text-center sm:text-xl md:text-3xl lg:text-5xl ml-6 mb-4 text-white transition-transform duration-300"
