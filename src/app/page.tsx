@@ -25,7 +25,7 @@ export default function Home() {
           setHideThirdCursor(true);
         }, 5000);
       }, 5000);
-    }, 2000);
+    }, 1000);
 
     return () => clearTimeout(timer);
   }, []);

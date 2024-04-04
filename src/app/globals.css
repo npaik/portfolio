@@ -216,7 +216,7 @@
 .star {
   opacity: 0;
   fill: #ffdf00;
-  animation: loader 2s infinite alternate;
+  animation: loader 1s infinite alternate;
 }
 
 .star2 {
