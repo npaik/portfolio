@@ -1,6 +1,19 @@
+"use client";
 import Link from "next/link";
+import React, { useState, useEffect } from "react";
+import Loading from "../loading";
 
 export default function ProjectsPage() {
+  const [isLoading, setIsLoading] = useState(true);
+
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
+    }, 2000);
+
+    return () => clearTimeout(timer);
+  }, []);
+
   const projects = [
     {
       name: "Ancient Hill Winery Redesign",
@@ -67,6 +80,10 @@ export default function ProjectsPage() {
   const createUrlFriendlyId = (name: string) => {
     return name.replace(/\s+/g, "");
   };
+
+  if (isLoading) {
+    return <Loading />;
+  }
 
   return (
     <div className="text-white flex flex-col justify-center items-center">

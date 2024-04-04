@@ -1,8 +1,10 @@
 "use client";
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, Suspense } from "react";
 import Link from "next/link";
+import Loading from "./loading";
 
 export default function Home() {
+  const [isLoading, setIsLoading] = useState(true);
   const [isTyping, setIsTyping] = useState(false);
   const [hideFirstCursor, setHideFirstCursor] = useState(false);
   const [hideSecondCursor, setHideSecondCursor] = useState(false);
@@ -10,7 +12,8 @@ export default function Home() {
   const [hideThirdCursor, setHideThirdCursor] = useState(false);
 
   useEffect(() => {
-    setTimeout(() => {
+    const timer = setTimeout(() => {
+      setIsLoading(false);
       setIsTyping(true);
       setHideFirstCursor(true);
 
@@ -22,7 +25,9 @@ export default function Home() {
           setHideThirdCursor(true);
         }, 5000);
       }, 5000);
-    }, 5000);
+    }, 2000);
+
+    return () => clearTimeout(timer);
   }, []);
 
   const getRandomColor = () => {
@@ -62,8 +67,13 @@ export default function Home() {
       )
     );
 
+  if (isLoading) {
+    return <Loading />;
+  }
+
   return (
     <>
+      <Suspense fallback={<Loading />}></Suspense>
       <div className="fixed top-0 right-0 p-4 z-50"></div>
       <div className="flex flex-col justify-center items-center pt-8 sm:pt-24 md:pt-36 lg:pt-48 xl:mt-36 bg-black">
         <div className="hover:text-scale-up">

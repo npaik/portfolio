@@ -1,6 +1,6 @@
 "use client";
-import React, { useRef, useEffect, useState } from "react";
-
+import React, { useRef, useEffect, useState, Suspense } from "react";
+import Loading from "../loading";
 interface Word {
   text: string;
   position: {
@@ -81,28 +81,54 @@ const categorizedKeywords = {
   ],
   Database: ["MySQL", "PostgreSQL", "SQLite"],
   Cloud: ["AWS", "Azure", "Cloud Deployment", "S3", "Vercel", "Fly.io"],
-  // SoftSkills: [
-  //   "Continuous Improvement",
-  //   "Creative Innovator",
-  //   "Customer Focused",
-  //   "Detail Oriented",
-  //   "Enthusiastic",
-  //   "Fast Learner",
-  //   "Positive Attitude",
-  //   "Problem Solver",
-  //   "Leadership",
-  //   "Team Collaboration",
-  // ],
 };
 
 const getRandomVelocity = () => Math.random() * 2 - 1;
 
 export default function AboutMePage() {
+  const [isLoading, setIsLoading] = useState(true);
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const [words, setWords] = useState<Word[]>([]);
   const [fadeOut, setFadeOut] = useState(false);
   const [displayList, setDisplayList] = useState(false);
   const [listOpacity, setListOpacity] = useState(0);
+
+  useEffect(() => {
+    const loadingTimeout = setTimeout(() => {
+      setIsLoading(false);
+    }, 2000);
+
+    return () => clearTimeout(loadingTimeout);
+  }, []);
+
+  useEffect(() => {
+    if (!isLoading) {
+      resizeCanvas();
+      window.addEventListener("resize", resizeCanvas);
+
+      const fadeOutTimeout = setTimeout(() => {
+        setFadeOut(true);
+        setTimeout(() => {
+          setDisplayList(true);
+          const fadeInterval = setInterval(() => {
+            setListOpacity((currentOpacity) => {
+              const newOpacity = currentOpacity + 0.02;
+              if (newOpacity >= 1) {
+                clearInterval(fadeInterval);
+                return 1;
+              }
+              return newOpacity;
+            });
+          }, 20);
+        }, 2000);
+      }, 5000);
+
+      return () => {
+        window.removeEventListener("resize", resizeCanvas);
+        clearTimeout(fadeOutTimeout);
+      };
+    }
+  }, [isLoading]);
 
   const initializeWords = (width: number, height: number) => {
     return keywords.map((keyword) => ({
@@ -212,6 +238,10 @@ export default function AboutMePage() {
       clearTimeout(timer);
     };
   }, []);
+
+  if (isLoading) {
+    return <Loading />;
+  }
 
   return (
     <div className="flex flex-col items-center w-full h-screen overflow-hidden">
