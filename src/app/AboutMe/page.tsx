@@ -1,5 +1,7 @@
 "use client";
 import React, { useRef, useEffect, useState } from "react";
+import Link from "next/link";
+import Image from "next/image";
 
 interface Word {
   text: string;
@@ -251,10 +253,10 @@ export default function AboutMePage() {
             the tech industry, leveraging my background to enable collaboration
             and drive projects to success.
           </div>
-          <div className="flex flex-col text-3xl font-bold mb-2 pt-10">
+          <div className="flex justify-center items-center flex-col text-3xl font-bold mb-2 pt-10">
             SKILLS
           </div>
-          <div className="flex ">
+          <div className="justify-center items-center">
             <div className="text-white grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4 p-4">
               {Object.entries(categorizedKeywords).map(
                 ([category, keywords], index) => (
@@ -269,6 +271,34 @@ export default function AboutMePage() {
                 )
               )}
             </div>
+          </div>
+          <div className="flex justify-end items-center space-x-4">
+            <Link
+              className="rounded-full p-2 hover:bg-gray-100"
+              href="https://github.com/npaik"
+            >
+              <Image
+                src="/github.png"
+                alt="Github"
+                width={24}
+                height={24}
+                className="h-6 w-6"
+              />
+              <span className="sr-only">GitHub</span>
+            </Link>
+            <Link
+              className="rounded-full p-2 hover:bg-gray-100"
+              href="https://www.linkedin.com/in/npaik/"
+            >
+              <Image
+                src="/linkedin.png"
+                alt="LinkedIn"
+                width={24}
+                height={24}
+                className="h-6 w-6"
+              />
+              <span className="sr-only">LinkedIn</span>
+            </Link>
           </div>
         </div>
       ) : (

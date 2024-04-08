@@ -1,6 +1,7 @@
 "use client";
 import React, { useState, useEffect, Suspense } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import Loading from "./loading";
 
 export default function Home() {
@@ -117,6 +118,34 @@ export default function Home() {
             </p>
           )}
         </div>
+      </div>
+      <div className="flex justify-end items-center space-x-4">
+        <Link
+          className="rounded-full p-2 hover:bg-gray-100"
+          href="https://github.com/npaik"
+        >
+          <Image
+            src="/github.png"
+            alt="Github"
+            width={24}
+            height={24}
+            className="h-6 w-6"
+          />
+          <span className="sr-only">GitHub</span>
+        </Link>
+        <Link
+          className="rounded-full p-2 hover:bg-gray-100"
+          href="https://www.linkedin.com/in/npaik/"
+        >
+          <Image
+            src="/linkedin.png"
+            alt="LinkedIn"
+            width={24}
+            height={24}
+            className="h-6 w-6"
+          />
+          <span className="sr-only">LinkedIn</span>
+        </Link>
       </div>
     </>
   );

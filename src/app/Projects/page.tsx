@@ -17,64 +17,83 @@ export default function ProjectsPage() {
 
   const projects = [
     {
-      name: "Ancient Hill Winery Redesign",
-      url: "https://ancienthillwinery-redesign.vercel.app/",
-      preview: "redesign.png",
+      name: "Math Quiz",
+      url: "https://d1qrtsxpwm67dt.cloudfront.net/",
+      preview: "mathgame.png",
+      stack: "TypeScript, React, SST, AWS, KindeAuth, PostgreSQL",
     },
     {
       name: "BCIT QDSHacks 2024",
       url: "https://bcit-qdshacks-2024-patpet.vercel.app/",
       preview: "patpet.png",
+      stack: "TypeScript, React, Vite, GPT API, Express",
     },
     {
       name: "Find Waldo Web App",
       url: "https://findwaldo-web-holy-fog-8052.fly.dev/",
       preview: "findwaldo.png",
+      stack: "TypeScript, React, .NET Core, Express",
+      badge: "asdfas",
     },
     {
-      name: "Expense Tracker App",
-      url: "https://seashark1-npaik.fly.dev/",
-      preview: "expensetracker.png",
+      name: "Ancient Hill Winery Redesign",
+      url: "https://ancienthillwinery-redesign.vercel.app/",
+      preview: "redesign.png",
+      stack: "TypeScript, React, Next.js, Tailwind CSS",
     },
     {
       name: "Tonyeebrary EBook library",
       url: "https://tonyeeebrary.vercel.app/",
       preview: "tonyeeebrary.png",
+      stack: "TypeScript, React, Next.js, S3 Bucket, AWS, SQLite",
     },
     {
-      name: "Gaon Restaurant Blog",
-      url: "https://blog-gaon.vercel.app/",
-      preview: "restaurantblog.png",
+      name: "Expense Tracker App",
+      url: "https://seashark1-npaik.fly.dev/",
+      preview: "expensetracker.png",
+      stack: "TypeScript, React, .NET Core, C#",
     },
     {
       name: "Bank Account Management",
       url: "https://bankaccount.azurewebsites.net/",
       preview: "bankaccount.png",
+      stack: ".NET Core, Razor Pages, C#, Azure, SQL Server",
     },
     {
       name: "Words Game Phaser",
       url: "https://wordsgamephaser.vercel.app/",
       preview: "typinggame.png",
+      stack: "JavaScript, Phaser, Prisma",
     },
     {
       name: "Game of YUT Board Game",
       url: "https://boardgame-eight.vercel.app/",
       preview: "boardgame.png",
+      stack: "JavaScript, React, Prisma",
     },
     {
       name: "Pokemon Matching Game",
       url: "https://pokemonmatchnig.vercel.app/",
       preview: "cardmatching.png",
+      stack: "JavaScript, React, CSS",
     },
     {
       name: "Pokemon Card Trader",
       url: "https://pokemoncardtrader.fly.dev/",
       preview: "randomcards.png",
+      stack: "JavaScript, React, CSS, Express",
+    },
+    {
+      name: "Gaon Restaurant Blog",
+      url: "https://blog-gaon.vercel.app/",
+      preview: "restaurantblog.png",
+      stack: "TypeScript, React, Next.js, Tailwind CSS",
     },
     {
       name: "Unity Runner Game in Progress",
       url: "/",
       preview: "unitygame.png",
+      stack: "C#, Unity",
     },
   ];
 
@@ -101,6 +120,8 @@ export default function ProjectsPage() {
               name={project.name}
               preview={project.preview}
               url={project.url}
+              description={project.stack}
+              badge="asdf"
             />
           </Link>
         ))}
