@@ -1,6 +1,6 @@
 "use client";
-import React, { useRef, useEffect, useState, Suspense } from "react";
-import Loading from "../loading";
+import React, { useRef, useEffect, useState } from "react";
+
 interface Word {
   text: string;
   position: {
@@ -94,14 +94,6 @@ export default function AboutMePage() {
   const [listOpacity, setListOpacity] = useState(0);
 
   useEffect(() => {
-    const loadingTimeout = setTimeout(() => {
-      setIsLoading(false);
-    }, 1000);
-
-    return () => clearTimeout(loadingTimeout);
-  }, []);
-
-  useEffect(() => {
     if (!isLoading) {
       resizeCanvas();
       window.addEventListener("resize", resizeCanvas);
@@ -120,8 +112,8 @@ export default function AboutMePage() {
               return newOpacity;
             });
           }, 20);
-        }, 2000);
-      }, 5000);
+        }, 1000);
+      }, 2000);
 
       return () => {
         window.removeEventListener("resize", resizeCanvas);
@@ -161,8 +153,8 @@ export default function AboutMePage() {
       setFadeOut(true);
       setTimeout(() => {
         setDisplayList(true);
-      }, 2000);
-    }, 5000);
+      }, 1000);
+    }, 2000);
     return () => clearTimeout(timer);
   }, []);
 
@@ -231,17 +223,13 @@ export default function AboutMePage() {
             return newOpacity;
           });
         }, 20);
-      }, 2000);
-    }, 5000);
+      }, 1000);
+    }, 2000);
 
     return () => {
       clearTimeout(timer);
     };
   }, []);
-
-  if (isLoading) {
-    return <Loading />;
-  }
 
   return (
     <div className="flex flex-col items-center w-full h-screen overflow-hidden">
