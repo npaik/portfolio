@@ -123,6 +123,8 @@ export default function Home() {
         <Link
           className="rounded-full p-2 hover:bg-gray-100"
           href="https://github.com/npaik"
+          target="_blank"
+          passHref
         >
           <Image
             src="/github.png"
@@ -136,6 +138,8 @@ export default function Home() {
         <Link
           className="rounded-full p-2 hover:bg-gray-100"
           href="https://www.linkedin.com/in/npaik/"
+          target="_blank"
+          passHref
         >
           <Image
             src="/linkedin.png"
