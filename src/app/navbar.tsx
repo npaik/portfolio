@@ -93,7 +93,7 @@ export default function NavBar() {
 
   return (
     <div className="fixed top-0 right-0 z-50">
-      <button className="p-4" onClick={() => setIsOpen(!isOpen)}>
+      <button className="p-4 z-50 visible" onClick={() => setIsOpen(!isOpen)}>
         <Image
           src={isOpen ? "/closebutton.png" : "/hamburger.png"}
           alt={isOpen ? "Close" : "Menu"}

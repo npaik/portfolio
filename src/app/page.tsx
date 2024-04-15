@@ -1,11 +1,9 @@
 "use client";
-import React, { useState, useEffect, Suspense } from "react";
+import React, { useState, useEffect } from "react";
 import Link from "next/link";
 import Image from "next/image";
-import Loading from "./loading";
 
 export default function Home() {
-  const [isLoading, setIsLoading] = useState(true);
   const [isTyping, setIsTyping] = useState(false);
   const [hideFirstCursor, setHideFirstCursor] = useState(false);
   const [hideSecondCursor, setHideSecondCursor] = useState(false);
@@ -13,8 +11,7 @@ export default function Home() {
   const [hideThirdCursor, setHideThirdCursor] = useState(false);
 
   useEffect(() => {
-    const timer = setTimeout(() => {
-      setIsLoading(false);
+    setTimeout(() => {
       setIsTyping(true);
       setHideFirstCursor(true);
 
@@ -26,9 +23,7 @@ export default function Home() {
           setHideThirdCursor(true);
         }, 5000);
       }, 5000);
-    }, 1000);
-
-    return () => clearTimeout(timer);
+    }, 5000);
   }, []);
 
   const getRandomColor = () => {
@@ -68,18 +63,12 @@ export default function Home() {
       )
     );
 
-  if (isLoading) {
-    return <Loading />;
-  }
-
   return (
     <>
-      <Suspense fallback={<Loading />}></Suspense>
-      <div className="fixed top-0 right-0 p-4 z-50"></div>
-      <div className="flex flex-col justify-center items-center pt-8 sm:pt-24 md:pt-36 lg:pt-48 xl:mt-36">
-        <div className="hover:text-scale-up">
+      <div className="flex flex-col justify-center items-center pt-48 mt-36">
+        <div className="text-center h-[10rem] hover:text-scale-up">
           <h1
-            className="typing text-center sm:text-xl md:text-3xl lg:text-5xl ml-6 mb-4 text-white transition-transform duration-300"
+            className="typing text-sm sm:text-md md:text-xl lg:text-5xl ml-6 mb-4 text-white transition-transform duration-300"
             style={{
               animation: hideFirstCursor ? "none" : "",
               borderRight: hideFirstCursor ? "none" : "3px solid white",
@@ -89,7 +78,7 @@ export default function Home() {
           </h1>
           {isTyping && (
             <p
-              className="typing text-center sm:text-md md:text-lg lg:text-2xl ml-6 mb-4 text-white transition-transform duration-300"
+              className="typing text-center sm:text-xs md:text-xl lg:text-2xl ml-6 mb-4 text-white transition-transform duration-300"
               style={{
                 animation: hideSecondCursor ? "none" : "",
                 borderRight: hideSecondCursor ? "none" : "3px solid white",
@@ -103,7 +92,7 @@ export default function Home() {
           )}
           {showThirdLine && (
             <p
-              className="typing text-center sm:text-md md:text-lg lg:text-2xl ml-6 mb-4 text-white transition-transform duration-300"
+              className="typing text-center sm:text-xs md:text-xl lg:text-2xl ml-6 mb-4 text-white transition-transform duration-300"
               style={{
                 animation: hideThirdCursor ? "none" : "",
                 borderRight: hideThirdCursor ? "none" : "3px solid white",

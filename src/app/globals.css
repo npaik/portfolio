@@ -270,13 +270,12 @@
 }
 
 .typing {
-  font-size: 2rem;
   color: white;
   border-right: 3px solid white;
   animation: blink 0.5s infinite, typing 4s steps(30);
   white-space: nowrap;
   overflow: hidden;
-  overflow: visible on hover;
+
 }
 
 @keyframes blink {
