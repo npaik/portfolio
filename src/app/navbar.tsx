@@ -99,6 +99,7 @@ export default function NavBar() {
           alt={isOpen ? "Close" : "Menu"}
           width={55}
           height={55}
+          priority
         />
       </button>
       {isOpen && (

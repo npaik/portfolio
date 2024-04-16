@@ -1,10 +1,12 @@
 import Link from "next/link";
 import Image from "next/image";
+import Button from "../../Components/Button";
 
 export default function MathQuiz() {
   const project = {
     name: "Math Quiz",
     url: "https://d1qrtsxpwm67dt.cloudfront.net/",
+    github: "https://github.com/npaik/SST-MathGame",
     preview: "/mathgame.png",
   };
 
@@ -18,15 +20,18 @@ export default function MathQuiz() {
               <Image
                 src={project.preview}
                 alt={`Preview of ${project.name}`}
-                layout="responsive"
                 width={800}
                 height={450}
-                objectFit="cover"
                 className="duration-300 ease-in-out transform hover:scale-105"
+                style={{ height: "auto", width: "auto" }}
               />
             </div>
           </div>
         </Link>
+        <div className="flex justify-end items-center space-x-4">
+          <Button link={project.github} text={"</> Code"} />
+          <Button link={project.url} text={"Live Site"} />
+        </div>
       </div>
       <div className="text-left w-full max-w-4xl px-4 pt-10">
         <p>some texts</p>

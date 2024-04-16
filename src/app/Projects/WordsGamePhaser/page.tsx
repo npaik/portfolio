@@ -1,10 +1,12 @@
 import Link from "next/link";
 import Image from "next/image";
+import Button from "../../Components/Button";
 
 export default function WordsGamePhaser() {
   const project = {
     name: "Words Game Phaser",
     url: "https://wordsgamephaser.vercel.app/",
+    github: "https://github.com/npaik/wordsgamephaser",
     preview: "/typinggame.png",
   };
 
@@ -18,11 +20,10 @@ export default function WordsGamePhaser() {
               <Image
                 src={project.preview}
                 alt={`Preview of ${project.name}`}
-                layout="responsive"
                 width={800}
                 height={450}
-                objectFit="cover"
                 className="duration-300 ease-in-out transform hover:scale-105"
+                style={{ height: "auto", width: "auto" }}
               />
             </div>
           </div>

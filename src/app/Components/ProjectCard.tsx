@@ -33,9 +33,13 @@ const ProjectCard: React.FC<ProjectCardProps> = ({
             <Image
               src={`/${preview}`}
               alt={name}
-              layout="fill"
+              width={400}
+              height={200}
+              priority
+              // layout="fill"
               className="img"
-              objectFit="cover"
+              // objectFit="cover"
+              style={{ height: "auto", width: "auto" }}
             />
             <div className="front-content">
               {/* <small className="badge">{badge}</small> */}
