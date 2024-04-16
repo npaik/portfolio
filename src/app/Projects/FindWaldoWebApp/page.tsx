@@ -58,7 +58,16 @@ export default function FindWaldoWebApp() {
           about having a good time while getting better at noticing small
           details.
         </p>
-
+        <div className="aspect-w-16 aspect-h-9 w-full overflow-hidden rounded-lg">
+          <Image
+            src="/findwaldo-more.png"
+            alt={`Preview of ${project.name}`}
+            width={800}
+            height={450}
+            className="duration-300 ease-in-out transform hover:scale-105"
+            style={{ height: "auto", width: "auto" }}
+          />
+        </div>
         <h2 className="text-lg font-semibold">Making the Game</h2>
         <p>
           To build this game, I used React with TypeScript as my paint and brush
@@ -80,7 +89,16 @@ export default function FindWaldoWebApp() {
           have plans to create new pictures that are all ours so everyone can
           play.
         </p>
-
+        <div className="aspect-w-16 aspect-h-9 w-full overflow-hidden rounded-lg">
+          <Image
+            src="/findwaldo-room.png"
+            alt={`Preview of ${project.name}`}
+            width={800}
+            height={450}
+            className="duration-300 ease-in-out transform hover:scale-105"
+            style={{ height: "auto", width: "auto" }}
+          />
+        </div>
         <h2 className="text-lg font-semibold">What’s Next?</h2>
         <p>
           I’m dreaming big for Find Waldo. Imagine inviting your friends to

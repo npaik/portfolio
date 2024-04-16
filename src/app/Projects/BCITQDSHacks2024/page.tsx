@@ -60,6 +60,16 @@ export default function BCITQDSHacks2024() {
           API enables the chatbot feature, allowing users to engage in
           meaningful interactions with their virtual pet.
         </p>
+        <div className="aspect-w-16 aspect-h-9 w-full overflow-hidden rounded-lg">
+          <Image
+            src="/patpet-chat.png"
+            alt={`Preview of ${project.name}`}
+            width={800}
+            height={450}
+            className="duration-300 ease-in-out transform hover:scale-105"
+            style={{ height: "auto", width: "auto" }}
+          />
+        </div>
         <h2 className="text-lg font-semibold">Core Features</h2>
         <p>
           MindPet introduces several engaging features to enhance the user
