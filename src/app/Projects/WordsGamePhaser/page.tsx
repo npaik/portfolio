@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
-import Button from "../../Components/Button";
+import GithubButton from "../../Components/GithubButton";
+import LiveButton from "../../Components/LiveButton";
 
 export default function WordsGamePhaser() {
   const project = {
@@ -28,6 +29,8 @@ export default function WordsGamePhaser() {
             </div>
           </div>
         </Link>
+        <GithubButton link={project.github} text={"</> Code"} />
+        <LiveButton link={project.url} text={"Live Site"} />
       </div>
       <div className="text-left w-full max-w-4xl px-4 pt-10">
         <p>some texts</p>

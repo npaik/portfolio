@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
-import Button from "../../Components/Button";
+import GithubButton from "../../Components/GithubButton";
+import LiveButton from "../../Components/LiveButton";
 
 export default function BCITQDSHacks2024() {
   const project = {
@@ -28,8 +29,8 @@ export default function BCITQDSHacks2024() {
             </div>
           </div>
         </Link>
-        <Button link={project.github} text={"</> Code"} />
-        <Button link={project.url} text={"Live Site"} />
+        <GithubButton link={project.github} text={"</> Code"} />
+        <LiveButton link={project.url} text={"Live Site"} />
       </div>
       <div className="text-left w-full max-w-4xl px-4 pt-10">
         <p>some texts</p>

@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
-import Button from "../../Components/Button";
+import GithubButton from "../../Components/GithubButton";
+import LiveButton from "../../Components/LiveButton";
 
 export default function PokemonMatchingGame() {
   const project = {
@@ -29,8 +30,8 @@ export default function PokemonMatchingGame() {
           </div>
         </Link>
         <div className="flex justify-end items-center space-x-4">
-          <Button link={project.github} text={"</> Code"} />
-          <Button link={project.url} text={"Live Site"} />
+          <GithubButton link={project.github} text={"</> Code"} />
+          <LiveButton link={project.url} text={"Live Site"} />
         </div>
       </div>
       <div className="text-left w-full max-w-4xl px-4 pt-10">
