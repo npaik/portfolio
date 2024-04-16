@@ -9,7 +9,7 @@ export default function UnityRunnerGameinProgress() {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center mt-10">
+    <div className="flex flex-col items-center justify-center mt-10 mb-10">
       <div className="text-center space-y-4 w-full max-w-4xl px-4">
         <h1 className="text-2xl font-semibold pb-10">{project.name}</h1>
         <Link href={project.url} target="_blank" passHref>

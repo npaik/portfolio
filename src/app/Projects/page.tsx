@@ -17,7 +17,7 @@ export default function ProjectsPage() {
 
   const projects = [
     {
-      name: "Math Quiz",
+      name: "Math Quiz for Children",
       url: "https://d1qrtsxpwm67dt.cloudfront.net/",
       preview: "mathgame.png",
       stack: "TypeScript, React, SST, AWS, KindeAuth, PostgreSQL",
@@ -45,7 +45,7 @@ export default function ProjectsPage() {
       name: "Tonyeebrary EBook library",
       url: "https://tonyeeebrary.vercel.app/",
       preview: "tonyeeebrary.png",
-      stack: "TypeScript, React, Next.js, S3 Bucket, AWS, SQLite",
+      stack: "TypeScript, React, Next.js, S3 Bucket, AWS, PostgreSQL",
     },
     {
       name: "Expense Tracker App",
