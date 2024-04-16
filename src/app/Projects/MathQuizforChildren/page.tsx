@@ -8,7 +8,7 @@ export default function MathQuiz() {
     name: "Math Quiz for Children",
     url: "https://d1qrtsxpwm67dt.cloudfront.net/",
     github: "https://github.com/npaik/SST-MathGame",
-    preview: "/mathgame.png",
+    preview: "/mathgame-list.png",
   };
 
   return (
@@ -55,6 +55,16 @@ export default function MathQuiz() {
           seeking to integrate fun and educational content into their teaching
           methods.
         </p>
+        <div className="aspect-w-16 aspect-h-9 w-full overflow-hidden rounded-lg">
+          <Image
+            src="/mathgame-quiz.png"
+            alt={`Preview of ${project.name}`}
+            width={800}
+            height={450}
+            className="duration-300 ease-in-out transform hover:scale-105"
+            style={{ height: "auto", width: "auto" }}
+          />
+        </div>
         <h2 className="text-lg font-semibold">
           Technology Stack and Development
         </h2>
@@ -81,6 +91,16 @@ export default function MathQuiz() {
           Difficulty Levels: Quizzes can be filtered by difficulty levels,
           allowing students to challenge themselves comfortably.
         </p>
+        <div className="aspect-w-16 aspect-h-9 w-full overflow-hidden rounded-lg">
+          <Image
+            src="/mathgame-create.png"
+            alt={`Preview of ${project.name}`}
+            width={800}
+            height={450}
+            className="duration-300 ease-in-out transform hover:scale-105"
+            style={{ height: "auto", width: "auto" }}
+          />
+        </div>
         <h2 className="text-lg font-semibold">Challenges and Improvements</h2>
         <p>
           While the app has been successful, there are areas slated for
@@ -92,6 +112,7 @@ export default function MathQuiz() {
           this aspect of the app will improve the overall user experience and
           engagement.
         </p>
+
         <h2 className="text-lg font-semibold">
           Conclusion and Looking Forward
         </h2>
