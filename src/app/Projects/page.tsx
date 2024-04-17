@@ -19,7 +19,7 @@ export default function ProjectsPage() {
     {
       name: "Math Quiz for Children",
       url: "https://d1qrtsxpwm67dt.cloudfront.net/",
-      preview: "mathgame.png",
+      preview: "mathgame-list.png",
       stack: "TypeScript, React, SST, AWS, KindeAuth, PostgreSQL",
     },
     {

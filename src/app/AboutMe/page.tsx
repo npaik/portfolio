@@ -122,6 +122,7 @@ export default function AboutMePage() {
         clearTimeout(fadeOutTimeout);
       };
     }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [isLoading]);
 
   const initializeWords = (width: number, height: number) => {
@@ -234,14 +235,16 @@ export default function AboutMePage() {
   }, []);
 
   return (
-    <div className="flex flex-col items-center w-full h-screen overflow-hidden">
-      <div className="text-white text-5xl mb-4 font-bold">Tony Paik</div>
-      <div className="text-white text-3xl mb-10 font-bold">
+    <div className="flex flex-col items-center w-full min-h-screen overflow-auto">
+      <div className="text-white text-3xl md:text-5xl mb-4 font-bold">
+        Tony Paik
+      </div>
+      <div className="text-white text-2xl md:text-3xl mb-10 font-bold">
         Full Stack Web Developer
       </div>
       {displayList ? (
         <div style={{ opacity: listOpacity }}>
-          <div className="text-white text-xl mb-4">
+          <div className="text-white text-lg md:text-xl mb-4 px-4">
             I am deeply passionate about crafting innovative solutions in web
             development. I am always in pursuit of a learning environment that
             encourages the application of the latest technologies and practices.
@@ -253,7 +256,7 @@ export default function AboutMePage() {
             the tech industry, leveraging my background to enable collaboration
             and drive projects to success.
           </div>
-          <div className="flex justify-center items-center flex-col text-3xl font-bold mb-2 pt-10">
+          <div className="flex justify-center items-center flex-col text-2xl md:text-3xl font-bold mb-2 pt-10">
             SKILLS
           </div>
           <div className="justify-center items-center">
@@ -261,9 +264,14 @@ export default function AboutMePage() {
               {Object.entries(categorizedKeywords).map(
                 ([category, keywords], index) => (
                   <div key={index} className="flex flex-col">
-                    <div className="text-xl font-bold mb-2">{category}</div>
+                    <div className="text-lg md:text-xl font-bold mb-2">
+                      {category}
+                    </div>
                     {keywords.map((keyword, keywordIndex) => (
-                      <div key={keywordIndex} className="text-md p-1">
+                      <div
+                        key={keywordIndex}
+                        className="text-sm md:text-md p-1"
+                      >
                         {keyword}
                       </div>
                     ))}
@@ -272,7 +280,7 @@ export default function AboutMePage() {
               )}
             </div>
           </div>
-          <div className="flex justify-end items-center space-x-4">
+          <div className="flex justify-end items-center space-x-4 p-4">
             <Link
               className="rounded-full p-2 hover:bg-gray-100"
               href="https://github.com/npaik"
