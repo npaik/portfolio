@@ -34,9 +34,7 @@ export default function GaonRestaurantBlog() {
           <LiveButton link={project.url} text={"Live Site"} />
         </div>
       </div>
-      <div className="text-left w-full max-w-4xl px-4 pt-10">
-        <p>some texts</p>
-      </div>
+      <div className="text-left w-full max-w-4xl px-4 pt-10"></div>
     </div>
   );
 }

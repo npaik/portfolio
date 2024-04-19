@@ -41,12 +41,12 @@ export default function ProjectsPage() {
       preview: "redesign.png",
       stack: "TypeScript, React, Next.js, Tailwind CSS",
     },
-    // {
-    //   name: "Tonyeebrary EBook library",
-    //   url: "https://tonyeeebrary.vercel.app/",
-    //   preview: "tonyeeebrary.png",
-    //   stack: "TypeScript, React, Next.js, S3 Bucket, AWS, PostgreSQL",
-    // },
+    {
+      name: "Tonyeebrary EBook library",
+      url: "https://tonyeeebrary.vercel.app/",
+      preview: "tonyeeebrary.png",
+      stack: "TypeScript, React, Next.js, S3 Bucket, AWS, PostgreSQL",
+    },
     // {
     //   name: "Expense Tracker App",
     //   url: "https://seashark1-npaik.fly.dev/",
