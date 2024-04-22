@@ -47,54 +47,54 @@ export default function ProjectsPage() {
       preview: "tonyeeebrary.png",
       stack: "TypeScript, React, Next.js, S3 Bucket, AWS, PostgreSQL",
     },
-    // {
-    //   name: "Expense Tracker App",
-    //   url: "https://seashark1-npaik.fly.dev/",
-    //   preview: "expensetracker.png",
-    //   stack: "TypeScript, React, .NET Core, C#",
-    // },
-    // {
-    //   name: "Bank Account Management",
-    //   url: "https://bankaccount.azurewebsites.net/",
-    //   preview: "bankaccount.png",
-    //   stack: ".NET Core, Razor Pages, C#, Azure, SQL Server",
-    // },
-    // {
-    //   name: "Words Game Phaser",
-    //   url: "https://wordsgamephaser.vercel.app/",
-    //   preview: "typinggame.png",
-    //   stack: "JavaScript, Phaser, Prisma",
-    // },
-    // {
-    //   name: "Game of YUT Board Game",
-    //   url: "https://boardgame-eight.vercel.app/",
-    //   preview: "boardgame.png",
-    //   stack: "JavaScript, React, Prisma",
-    // },
-    // {
-    //   name: "Pokemon Matching Game",
-    //   url: "https://pokemonmatchnig.vercel.app/",
-    //   preview: "cardmatching.png",
-    //   stack: "JavaScript, React, CSS",
-    // },
-    // {
-    //   name: "Pokemon Card Trader",
-    //   url: "https://pokemoncardtrader.fly.dev/",
-    //   preview: "randomcards.png",
-    //   stack: "JavaScript, React, CSS, Express",
-    // },
-    // {
-    //   name: "Gaon Restaurant Blog",
-    //   url: "https://blog-gaon.vercel.app/",
-    //   preview: "restaurantblog.png",
-    //   stack: "TypeScript, React, Next.js, Tailwind CSS",
-    // },
-    // {
-    //   name: "Unity Runner Game in Progress",
-    //   url: "/",
-    //   preview: "unitygame.png",
-    //   stack: "C#, Unity",
-    // },
+    {
+      name: "Expense Tracker App",
+      url: "https://seashark1-npaik.fly.dev/",
+      preview: "expensetracker.png",
+      stack: "TypeScript, React, .NET Core, C#",
+    },
+    {
+      name: "Bank Account Management",
+      url: "https://bankaccount.azurewebsites.net/",
+      preview: "bankaccount.png",
+      stack: ".NET Core, Razor Pages, C#, Azure, SQL Server",
+    },
+    {
+      name: "Words Game Phaser",
+      url: "https://wordsgamephaser.vercel.app/",
+      preview: "typinggame.png",
+      stack: "JavaScript, Phaser, Prisma",
+    },
+    {
+      name: "Game of YUT Board Game",
+      url: "https://boardgame-eight.vercel.app/",
+      preview: "boardgame.png",
+      stack: "JavaScript, React, Prisma",
+    },
+    {
+      name: "Pokemon Matching Game",
+      url: "https://pokemonmatchnig.vercel.app/",
+      preview: "cardmatching.png",
+      stack: "JavaScript, React, CSS",
+    },
+    {
+      name: "Pokemon Card Trader",
+      url: "https://pokemoncardtrader.fly.dev/",
+      preview: "randomcards.png",
+      stack: "JavaScript, React, CSS, Express",
+    },
+    {
+      name: "Gaon Restaurant Blog",
+      url: "https://blog-gaon.vercel.app/",
+      preview: "restaurantblog.png",
+      stack: "TypeScript, React, Next.js, Tailwind CSS",
+    },
+    {
+      name: "Unity Runner Game in Progress",
+      url: "/",
+      preview: "unitygame.png",
+      stack: "C#, Unity",
+    },
   ];
 
   const createUrlFriendlyId = (name: string) => {
