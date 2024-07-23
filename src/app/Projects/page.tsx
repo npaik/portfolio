@@ -17,6 +17,12 @@ export default function ProjectsPage() {
 
   const projects = [
     {
+      name: "Bori",
+      url: "https://bori.codibara.com",
+      preview: "bori.png",
+      stack: "TypeScript, React, PostgreSQL, AWS, ",
+    },
+    {
       name: "Math Quiz for Children",
       url: "https://d1qrtsxpwm67dt.cloudfront.net/",
       preview: "mathgame-list.png",
