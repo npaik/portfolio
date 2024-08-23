@@ -2,13 +2,23 @@ import "./globals.css";
 import type { Metadata } from "next";
 import { twMerge } from "tailwind-merge";
 import NavBar from "./navbar";
-import { Inter } from "next/font/google";
+import { Inter, Manrope } from "next/font/google";
+import dynamic from "next/dynamic";
 
 const inter = Inter({ subsets: ["latin"] });
+const manrope = Manrope({ subsets: ["latin"], weight: "400" });
+
+const ScrollIndicator = dynamic(() => import("./Components/ScrollIndicator"), {
+  ssr: false,
+});
+
+const CustomCursor = dynamic(() => import("./Components/CustomCursor"), {
+  ssr: false,
+});
 
 export const metadata: Metadata = {
-  title: "Tony Paik",
-  description: "Built with Next.js",
+  title: "nakhyunpaik.com",
+  description: "Tony's personal portfolio",
 };
 
 export default function RootLayout({
@@ -24,6 +34,8 @@ export default function RootLayout({
           "relative bg-black text-white background-custom"
         )}
       >
+        <CustomCursor />
+        <ScrollIndicator />
         <header className="bg-black text-white shadow-md">
           <NavBar />
         </header>
