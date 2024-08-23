@@ -1,7 +1,6 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import { twMerge } from "tailwind-merge";
-import NavBar from "./navbar";
 import { Inter, Manrope } from "next/font/google";
 import dynamic from "next/dynamic";
 
