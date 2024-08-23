@@ -2,6 +2,40 @@
 @tailwind components;
 @tailwind utilities;
 
+
+.scroll-indicator {
+  position: fixed;
+  right: 0px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 25px;
+  height: 85px;
+  background-color: transparent;
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.scroll-indicator .step {
+  width: 8px;
+  height: 1px;
+  background-color: #d3d7d7;
+  border-radius: 0;
+  transition: background-color 0.25s ease-out, transform 0.25s ease-out;
+  transform-origin: center;
+}
+
+.scroll-indicator .step.active {
+  background-color: #3e428c;
+  transform: scale(2);
+}
+
+.scroll-indicator .step.semi-active {
+  background-color: #3e428c;
+  transform: scale(1.5);
+}
+
 .card {
   overflow: visible;
   width: 350px;
@@ -275,7 +309,6 @@
   animation: blink 0.5s infinite, typing 4s steps(30);
   white-space: nowrap;
   overflow: hidden;
-
 }
 
 @keyframes blink {
