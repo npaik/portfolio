@@ -1,8 +1,145 @@
-import Main from "../app/Components/main/main";
+"use client";
+import React, { useState, useEffect } from "react";
+import Link from "next/link";
+import Image from "next/image";
+
 export default function Home() {
+  const [isTyping, setIsTyping] = useState(false);
+  const [hideFirstCursor, setHideFirstCursor] = useState(false);
+  const [hideSecondCursor, setHideSecondCursor] = useState(false);
+  const [showThirdLine, setShowThirdLine] = useState(false);
+  const [hideThirdCursor, setHideThirdCursor] = useState(false);
+
+  useEffect(() => {
+    setTimeout(() => {
+      setIsTyping(true);
+      setHideFirstCursor(true);
+
+      setTimeout(() => {
+        setHideSecondCursor(true);
+        setShowThirdLine(true);
+
+        setTimeout(() => {
+          setHideThirdCursor(true);
+        }, 5000);
+      }, 5000);
+    }, 5000);
+  }, []);
+
+  const getRandomColor = () => {
+    const letters = "0123456789ABCDEF";
+    let color = "#";
+    for (let i = 0; i < 6; i++) {
+      color += letters[Math.floor(Math.random() * 16)];
+    }
+    return color;
+  };
+
+  const handleMouseEnter = (e: any) => {
+    e.target.style.color = getRandomColor();
+  };
+
+  const handleMouseLeave = (e: any) => {
+    e.target.style.color = "white";
+  };
+
+  const wrapTextForHoverEffect = (
+    text: string,
+    isSecondSentence = false,
+    isThirdSentence = false
+  ) =>
+    text.split("").map((char, index) =>
+      char === " " ? (
+        <span key={index}>&nbsp;</span>
+      ) : (
+        <span
+          key={index}
+          className="letter"
+          onMouseEnter={handleMouseEnter}
+          onMouseLeave={handleMouseLeave}
+        >
+          {char}
+        </span>
+      )
+    );
+
   return (
     <>
-      <Main />
+      <div className="flex flex-col justify-center items-center pt-48 mt-36">
+        <div className="text-center h-[10rem] hover:text-scale-up">
+          <h1
+            className="typing text-sm sm:text-md md:text-xl lg:text-5xl ml-6 mb-4 text-white transition-transform duration-300"
+            style={{
+              animation: hideFirstCursor ? "none" : "",
+              borderRight: hideFirstCursor ? "none" : "3px solid white",
+            }}
+          >
+            {wrapTextForHoverEffect("Hi there, I'm Tony Paik", false)}
+          </h1>
+          {isTyping && (
+            <p
+              className="typing text-center sm:text-xs md:text-xl lg:text-2xl ml-6 mb-4 text-white transition-transform duration-300"
+              style={{
+                animation: hideSecondCursor ? "none" : "",
+                borderRight: hideSecondCursor ? "none" : "3px solid white",
+              }}
+            >
+              {wrapTextForHoverEffect(
+                "I'm a Full-Stack Web Developer. I love crafting fun, useful, and innovative solutions.",
+                true
+              )}
+            </p>
+          )}
+          {showThirdLine && (
+            <p
+              className="typing text-center sm:text-xs md:text-xl lg:text-2xl ml-6 mb-4 text-white transition-transform duration-300"
+              style={{
+                animation: hideThirdCursor ? "none" : "",
+                borderRight: hideThirdCursor ? "none" : "3px solid white",
+              }}
+            >
+              <Link href="/Projects">
+                {wrapTextForHoverEffect(
+                  "Click here to check out my projects!",
+                  true
+                )}
+              </Link>
+            </p>
+          )}
+        </div>
+      </div>
+      <div className="flex justify-end items-center space-x-4">
+        <Link
+          className="rounded-full p-2 hover:bg-gray-100"
+          href="https://github.com/npaik"
+          target="_blank"
+          passHref
+        >
+          <Image
+            src="/github.png"
+            alt="Github"
+            width={24}
+            height={24}
+            className="h-6 w-6"
+          />
+          <span className="sr-only">GitHub</span>
+        </Link>
+        <Link
+          className="rounded-full p-2 hover:bg-gray-100"
+          href="https://www.linkedin.com/in/npaik/"
+          target="_blank"
+          passHref
+        >
+          <Image
+            src="/linkedin.png"
+            alt="LinkedIn"
+            width={24}
+            height={24}
+            className="h-6 w-6"
+          />
+          <span className="sr-only">LinkedIn</span>
+        </Link>
+      </div>
     </>
   );
 }
