@@ -25,7 +25,7 @@ export default function RootLayout({
         )}
       >
         <header className="bg-black text-white shadow-md">
-          <NavBar />
+          {/* <NavBar /> */}
         </header>
         <main className="mt-10 mx-auto max-w-7xl">{children}</main>
       </body>
