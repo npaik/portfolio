@@ -26,9 +26,9 @@ export default function MaintenancePage() {
 
         {/* Description */}
         <p className="text-lg text-gray-400 mb-8 leading-relaxed">
-          We're temporarily updating our portfolio.
+          We&#39;re temporarily updating our portfolio.
           <br />
-          We'll be back soon!
+          We&#39;ll be back soon!
         </p>
 
         {/* Contact Info */}
